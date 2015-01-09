@@ -1,0 +1,17 @@
+count <- 11
+for (var in variables[1:12]){
+  index <- match(var, colnames(dat1))
+  words <- read.csv(paste0(var,'.csv'))
+  for (i in 1:nrow(words)){
+    dat[,count] <- 1*(tolower(words[i,1]) %in% tolower(dat1[,index]))
+    names(dat)[count] <- tolower(words[i,1])
+    count <- count + 1
+  }
+}
+
+words <- read.csv('Text_3&4.csv')
+for (i in 1:nrow(words)){
+  dat[,count] <- 1*((tolower(words[i,1]) %in% tolower(dat1$Text_3))|(tolower(words[i,1]) %in% tolower(dat1$Text_4)))
+  names(dat)[count] <- tolower(words[i,1])
+  count <- count + 1
+}

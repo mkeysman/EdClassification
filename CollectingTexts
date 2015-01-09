@@ -1,0 +1,843 @@
+
+
+obje <-c('(Exec) Director', 'Area Officers', 'Club Advisor/Coach', 'Coordinator/Manager', 'Custodian', 'Guidance Counselor', 'Instructional Coach', 'Librarian', 'NO_LABEL', 'Non-Position', 'Nurse', 'Nurse Aide', 'Occupational Therapist', 'Other', 'Physical Therapist', 'Principal', 'Psychologist', 'School Monitor/Security', 'Sec/Clerk/Other Admin', 'Social Worker', 'Speech Therapist', 'Substitute', 'TA', 'Teacher', 'Vice Principal') 
+ 
+obj <- c()
+for (cat in obje){
+  dat <- data[data$Position_Type == cat,]
+  cat <- gsub("/","",cat)
+  name <- paste0('ByPosition_Type/', substring(gsub(" ","",cat), 1,10), ".csv")
+  obj <- c(obj, substring(gsub(" ","",cat), 1,10))
+  dat = dat[,11:26]
+  write.csv(dat, name)
+  }
+  
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$SubFund_Description[i])
+     }
+   write.csv(da, paste0('ByPosition_Type/SubFund_Description/', cat, '.txt')) 
+   cat(txt,  file = paste0('ByPosition_Type/SubFund_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_2[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Text_2/', cat, '.txt'), sep="\n")
+   }   
+
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Job_Title_Description[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Job_Title_Description/', cat, '.txt'), sep="\n")
+   }   
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_3[i])
+     txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Text_3&4/', cat, '.txt'), sep="\n")
+   }   
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Sub_Object_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Sub_Object_Description/', cat, '.txt'), sep="\n")
+   }   
+
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Facility_or_Department[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Facility_or_Department/', cat, '.txt'), sep="\n")
+   }   
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Location_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Location_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$objtion_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/objtion_Description/', cat, '.txt'), sep="\n")
+   }   
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Position_Extra[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByPosition_Type/Position_Extra/', cat, '.txt'), sep="\n")
+   }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Program_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByPosition_Type/Program_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Fund_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByPosition_Type/Fund_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByPosition_Type/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Text_1[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByPosition_Type/Text_1/', cat, '.txt'), sep="\n")
+  }   
+
+
+obje <-c('NO_LABEL', 'Non PreK', 'PreK') 
+ 
+obj <- c()
+for (cat in obje){
+  dat <- data[data$Pre_K == cat,]
+  cat <- gsub("/","",cat)
+  name <- paste0('ByPre_K/', substring(gsub(" ","",cat), 1,10), ".csv")
+  obj <- c(obj, substring(gsub(" ","",cat), 1,10))
+  dat = dat[,11:26]
+  write.csv(dat, name)
+  }
+  
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$Object_Description)
+ #  for (i in 1:nrow(da)){
+ #    txt <- paste(txt, da$Object_Description[i])
+ #    }
+   write.csv(da, paste0('ByPre_K/Object_Description/', cat, '.txt')) 
+   cat(txt,  file = paste0('ByPre_K/Object_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$Text_2)
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/Text_2/', cat, '.txt'), sep="\n")
+   }   
+
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$Job_Title_Description)
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/Job_Title_Description/', cat, '.txt'), sep="\n")
+   }   
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$Text_3)
+    txt <- paste(txt, da$Text_4)
+   
+ 
+   cat(txt,  file = paste0('ByPre_K/Text_3&4/', cat, '.txt'), sep="\n")
+   }   
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <-paste( da$Sub_Object_Description)
+  #   txt <- paste(txt, da$Text_4[i])
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/Sub_Object_Description/', cat, '.txt'), sep="\n")
+   }   
+
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <-paste(txt, da$Facility_or_Department)
+  #   txt <- paste(txt, da$Text_4[i])
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/Facility_or_Department/', cat, '.txt'), sep="\n")
+   } 
+     
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$Location_Description)
+  #   txt <- paste(txt, da$Text_4[i])
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/Location_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$SubFund_Description)
+  #   txt <- paste(txt, da$Text_4[i])
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/SubFund_Description/', cat, '.txt'), sep="\n")
+   }   
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+   txt <- paste(da$Position_Extra)
+  #   txt <- paste(txt, da$Text_4[i])
+     
+ 
+   cat(txt,  file = paste0('ByPre_K/Position_Extra/', cat, '.txt'), sep="\n")
+   }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+  txt <- paste(da$Program_Description)
+ #   txt <- paste(txt, da$Text_4[i])
+    
+
+  cat(txt,  file = paste0('ByPre_K/Program_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+  txt <-paste(da$Fund_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    
+
+  cat(txt,  file = paste0('ByPre_K/Fund_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByPre_K/', cat, '.csv'))
+  txt <- paste(txt, da$Text_1)
+ #   txt <- paste(txt, da$Text_4[i])
+    
+
+  cat(txt,  file = paste0('ByPre_K/Text_1/', cat, '.txt'), sep="\n")
+  }   
+
+
+obje <-c('NO_LABEL', 'Non-School', 'School') 
+ 
+obj <- c()
+for (cat in obje){
+  dat <- data[data$Reporting == cat,]
+  cat <- gsub("/","",cat)
+  name <- paste0('ByReporting/', substring(gsub(" ","",cat), 1,10), ".csv")
+  obj <- c(obj, substring(gsub(" ","",cat), 1,10))
+  dat = dat[,11:26]
+  write.csv(dat, name)
+  }
+  
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Object_Description[i])
+     }
+   write.csv(da, paste0('ByReporting/Object_Description/', cat, '.txt')) 
+   cat(txt,  file = paste0('ByReporting/Object_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_2[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Text_2/', cat, '.txt'), sep="\n")
+   }   
+
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Job_Title_Description[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Job_Title_Description/', cat, '.txt'), sep="\n")
+   }   
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_3[i])
+     txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Text_3&4/', cat, '.txt'), sep="\n")
+   }   
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Sub_Object_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Sub_Object_Description/', cat, '.txt'), sep="\n")
+   }   
+
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Facility_or_Department[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Facility_or_Department/', cat, '.txt'), sep="\n")
+   }   
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Location_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Location_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$objtion_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/objtion_Description/', cat, '.txt'), sep="\n")
+   }   
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Position_Extra[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByReporting/Position_Extra/', cat, '.txt'), sep="\n")
+   }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Program_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByReporting/Program_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Fund_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByReporting/Fund_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByReporting/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Text_1[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByReporting/Text_1/', cat, '.txt'), sep="\n")
+  }   
+
+
+obje <-c('Leadership & Management', 'NO_LABEL', 'School Reported', 'School on Central Budgets', 'Shared Services' ) 
+ 
+obj <- c()
+for (cat in obje){
+  dat <- data[data$Sharing == cat,]
+  cat <- gsub("/","",cat)
+  name <- paste0('BySharing/', substring(gsub(" ","",cat), 1,10), ".csv")
+  obj <- c(obj, substring(gsub(" ","",cat), 1,10))
+  dat = dat[,11:26]
+  write.csv(dat, name)
+  }
+  
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Object_Description[i])
+     }
+   write.csv(da, paste0('BySharing/Object_Description/', cat, '.txt')) 
+   cat(txt,  file = paste0('BySharing/Object_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+             
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_2[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Text_2/', cat, '.txt'), sep="\n")
+   }   
+
+
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Job_Title_Description[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Job_Title_Description/', cat, '.txt'), sep="\n")
+   }   
+
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_3[i])
+     txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Text_3&4/', cat, '.txt'), sep="\n")
+   }   
+              
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Sub_Object_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Sub_Object_Description/', cat, '.txt'), sep="\n")
+   }   
+
+              
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Facility_or_Department[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Facility_or_Department/', cat, '.txt'), sep="\n")
+   }   
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Location_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Location_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$objtion_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/objtion_Description/', cat, '.txt'), sep="\n")
+   }   
+             
+ for (cat in obj){
+   da <- read.csv(paste0('BySharing/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Position_Extra[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('BySharing/Position_Extra/', cat, '.txt'), sep="\n")
+   }   
+
+for (cat in obj){
+  da <- read.csv(paste0('BySharing/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Program_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('BySharing/Program_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('BySharing/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Fund_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('BySharing/Fund_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('BySharing/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Text_1[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('BySharing/Text_1/', cat, '.txt'), sep="\n")
+  }   
+
+
+obje <-c('Alternative', 'At Risk', 'ELL', 'Gifted', 'NO_LABEL', 'Poverty', 'PreK', 'Special Education', 'Unspecified') 
+ 
+obj <- c()
+for (cat in obje){
+  dat <- data[data$Student_Type == cat,]
+  cat <- gsub("/","",cat)
+  name <- paste0('ByStudent_Type/', substring(gsub(" ","",cat), 1,10), ".csv")
+  obj <- c(obj, substring(gsub(" ","",cat), 1,10))
+  dat = dat[,11:26]
+  write.csv(dat, name)
+  }
+  
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Object_Description[i])
+     }
+   write.csv(da, paste0('ByStudent_Type/Object_Description/', cat, '.txt')) 
+   cat(txt,  file = paste0('ByStudent_Type/Object_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_2[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Text_2/', cat, '.txt'), sep="\n")
+   }   
+
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Job_Title_Description[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Job_Title_Description/', cat, '.txt'), sep="\n")
+   }   
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_3[i])
+     txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Text_3&4/', cat, '.txt'), sep="\n")
+   }   
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Sub_Object_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Sub_Object_Description/', cat, '.txt'), sep="\n")
+   }   
+
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Facility_or_Department[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Facility_or_Department/', cat, '.txt'), sep="\n")
+   }   
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Location_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Location_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$objtion_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/objtion_Description/', cat, '.txt'), sep="\n")
+   }   
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Position_Extra[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByStudent_Type/Position_Extra/', cat, '.txt'), sep="\n")
+   }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Program_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByStudent_Type/Program_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Fund_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByStudent_Type/Fund_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByStudent_Type/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Text_1[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByStudent_Type/Text_1/', cat, '.txt'), sep="\n")
+  }   
+
+
+obje <-c('Business Services', 'ISPD', 'Instruction', 'Leadership', 'NO_LABEL', 'O&M', 'Pupil Services & Enrichment', 'Untracked Budget Set-Aside' ) 
+ 
+obj <- c()
+for (cat in obje){
+  dat <- data[data$Use == cat,]
+  cat <- gsub("/","",cat)
+  name <- paste0('ByUse/', substring(gsub(" ","",cat), 1,10), ".csv")
+  obj <- c(obj, substring(gsub(" ","",cat), 1,10))
+  dat = dat[,11:26]
+  write.csv(dat, name)
+  }
+  
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Object_Description[i])
+     }
+   write.csv(da, paste0('ByUse/Object_Description/', cat, '.txt')) 
+   cat(txt,  file = paste0('ByUse/Object_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_2[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Text_2/', cat, '.txt'), sep="\n")
+   }   
+
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Job_Title_Description[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Job_Title_Description/', cat, '.txt'), sep="\n")
+   }   
+
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Text_3[i])
+     txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Text_3&4/', cat, '.txt'), sep="\n")
+   }   
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Sub_Object_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Sub_Object_Description/', cat, '.txt'), sep="\n")
+   }   
+
+              
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Facility_or_Department[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Facility_or_Department/', cat, '.txt'), sep="\n")
+   }   
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Location_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Location_Description/', cat, '.txt'), sep="\n")
+   } 
+     
+for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$objtion_Description[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/objtion_Description/', cat, '.txt'), sep="\n")
+   }   
+             
+ for (cat in obj){
+   da <- read.csv(paste0('ByUse/', cat, '.csv'))
+   txt <- ""
+   for (i in 1:nrow(da)){
+     txt <- paste(txt, da$Position_Extra[i])
+  #   txt <- paste(txt, da$Text_4[i])
+     }
+ 
+   cat(txt,  file = paste0('ByUse/Position_Extra/', cat, '.txt'), sep="\n")
+   }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByUse/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Program_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByUse/Program_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByUse/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Fund_Description[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByUse/Fund_Description/', cat, '.txt'), sep="\n")
+  }   
+
+for (cat in obj){
+  da <- read.csv(paste0('ByUse/', cat, '.csv'))
+  txt <- ""
+  for (i in 1:nrow(da)){
+    txt <- paste(txt, da$Text_1[i])
+ #   txt <- paste(txt, da$Text_4[i])
+    }
+
+  cat(txt,  file = paste0('ByUse/Text_1/', cat, '.txt'), sep="\n")
+  }   
